@@ -1,0 +1,8 @@
+#!/bin/bash
+file="$HOME/.surf/bookmarks"
+entry="$(cat $file | dmenu -i)";
+if [ "$entry" != "" ]; then
+  url=$(echo $entry | awk '{print $1}')
+  #echo $url
+  surf $url &
+fi
